@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class= "h-screen">
+    <div class="flex h-full">
+        <!-- Left Side - Background -->
+        <div class="hidden md:block md:w-1/2 relative">
+            <div class="absolute inset-0 bg-[url('pictures/bgnew.png')] bg-cover bg-center"></div>
+            
+        </div>
+        
+        <!-- Right Side - Login Form -->
+        <div class="w-full md:w-1/2 bg-white flex items-center justify-center p-8">
+            <div class="w-full max-w-md">
+                <div class="text-center mb-8">
+                    <div class="flex justify-center mb-12">
+                        <img src="pictures/logo black.png" alt="Company Logo" class="h-auto w-auto">
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800">Sign In</h2>
+                    <p class="text-gray-600 mt-2">Enter your credentials to access your account</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="you@example.com">
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required 
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="••••••••">
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                id="remember-me" 
+                                name="remember-me" 
+                                type="checkbox" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+                        
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 text-center text-sm">
+                    <p class="text-gray-600">
+                        Don't have an account? 
+                        <a href="registration.html" class="font-medium text-blue-600 hover:text-blue-500">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

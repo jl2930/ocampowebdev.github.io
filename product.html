@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-200">
+    <!-- Navbar -->
+    <nav class="bg-black shadow">
+        <div class="max-w-6xl mx-auto px-2">
+            <div class="flex items-center py-2 justify-between">
+                <div>
+                    <a href = "index.html">
+                    <img src="pictures/logonoshadow.png" alt="logo" class="transition-all duration-300 ease-in-out hover:scale-110w-20 h-auto">
+                    </a>
+                </div>
+                <div class="flex items-center justify-center ml-10 space-x-4 flex-grow hidden md:flex">
+                    <a href="index.html" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Home</a>
+                    <a href="equipment.html" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Equipment</a>
+                    <a href="#" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Brands</a>
+                    <a href="#" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">About Us</a>
+                </div>
+                <div class="ml-auto cursor-pointer  mr-6 md:mr-7 sm:mr-6 relative" id="cart-icon" draggable="true">
+                    <img src="pictures/scwhite.png" alt="sc" class="w-8 h-8 align-top transition-all duration-300 ease-in-out hover:scale-110">
+                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+                </div>
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-white focus:outline-none transition-all duration-300 ease-in-out hover:scale-110 ">
+                       <img src="pictures/hamb.png" alt="hamburgerr" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+        <div class="flex flex-col bg-black text-white">
+            <a href="index.html" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Home</a>
+            <a href="equipment.html" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Equipment</a>
+            <a href="#" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Brands</a>
+            <a href="#" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">About Us</a>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[999]" id="cart-backdrop"></div>
+    <div class="hidden fixed top-0 right-0 w-[400px] h-full bg-white shadow-[-2px_0_10px_rgba(0,0,0,0.1)] z-[1000] overflow-y-auto" id="cart-overlay">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Your Cart</h2>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <hr class="border-2 border-neutral-300 mb-4">
+            
+            <!-- Cart items will appear here -->
+            <div id="cart-items" class="mb-4">
+                <p class="text-gray-500 text-center py-10">Your cart is empty</p>
+            </div>
+            
+            <hr class="border-2 border-neutral-300 mb-4">
+            
+            <div class="flex justify-between font-bold text-lg">
+                <span>Total:</span>
+                <span id="cart-total">P0</span>
+            </div>
+            
+            <button class="w-full bg-blue-500 text-white py-2 rounded mt-4 hover:bg-blue-600">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Kawasaki Ninja ZX6R" data-price="695000">
+                <img src="pictures/zx6r.png" alt="Product 1" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2 font-display">Kawasaki Ninja ZX6R</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Equipped with a 636cc inline-four engine, a quick-shifter, Kawasaki Traction Control (KTRC), a Showa suspension, Brembo brakes, and a full-color TFT display, providing a perfect balance of power, handling, and electronic rider aids for track and street performance.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P695,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Kawasaki Ninja ZX6R" data-price="695000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Honda CB650R" data-price="519000">
+                <img src="pictures/cb650r.jpg" alt="Product 2" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Honda CB650R</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Features a 649cc inline-four engine, a lightweight steel frame, Showa suspension, LED lighting, a fully digital LCD display, and a twin-disc front brake setup, making it an agile, stylish naked bike with a focus on balanced performance and comfort.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P519,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Honda CB650R" data-price="519000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Honda CBR1000RR-R Fireblade SP" data-price="1699000">
+                <img src="pictures/fireblade.jpg" alt="Product 3" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Honda CBR1000RR-R Fireblade SP</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Powered by a 999cc inline-four engine, features fully adjustable Ohlins suspension, a quick-shifter, Honda Selectable Torque Control (HSTC), and a full suite of electronic rider aids, designed for maximum track and road performance.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P1,699,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Honda CBR1000RR-R Fireblade SP" data-price="1699000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Husqvarna Svartpilen 401" data-price="325000">
+                <img src="pictures/husq.jpg" alt="Product 4" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Husqvarna Svartpilen 401</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Comes with a 373cc single-cylinder engine, WP suspension, a rugged steel trellis frame, Pirelli Scorpion Rally tires, LED lighting, and a minimalist design, making it perfect for urban and off-road exploration.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P325,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Husqvarna Svartpilen 401" data-price="325000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="KTM SX-F 250" data-price="325000">
+                <img src="pictures/sxf.jpeg" alt="Product 5" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">KTM SX-F 250</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Powered by a 1,103cc V4 engine, comes with Ohlins electronic suspension, Brembo brakes, Ducati Quick Shift, cornering ABS, and a fully integrated TFT dashboard, offering track-ready performance and precision handling.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P325,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="KTM SX-F 250" data-price="325000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Ducati Panigale V4S" data-price="2525000">
+                <img src="pictures/panigale.jpg" alt="Product 6" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Ducati Panigale V4S</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Equipped with a 1,103cc V4 engine, Ohlins suspension, Ducati Quick Shift, cornering ABS, and electronic traction control, delivering aggressive street performance with superb handling and cutting-edge rider aids.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P2,525,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Ducati Panigale V4S" data-price="2525000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Ducati Streetfighter V4S" data-price="1955000">
+                <img src="pictures/streetfigher.jpg" alt="Product 7" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Ducati Streetfighter V4S</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Equipped with a 1,103cc V4 engine, Ohlins suspension, Ducati Quick Shift, cornering ABS, and electronic traction control, delivering aggressive street performance with superb handling and cutting-edge rider aids.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P1,955,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-redr-500 px-4 py-2 add-to-cart" data-name="Ducati Streetfighter V4S" data-price="1955000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="Suzuki V-Strom 1000" data-price="699000">
+                <img src="pictures/vstrom.jpg" alt="Product 8" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">Suzuki V-Strom 1000</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Features a 1,037cc V-twin engine, long-travel suspension, traction control, ABS, a comfortable upright riding position, and durable, adventure-ready components, making it a versatile motorcycle for both touring and off-road expeditions.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P699,000</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="Suzuki V-Strom 1000" data-price="699000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="prodscript.js"></script>
+</body>
+</html>

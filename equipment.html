@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-200">
+    <!-- Navbar -->
+    <nav class="bg-black shadow">
+        <div class="max-w-6xl mx-auto px-2">
+            <div class="flex items-center py-2 justify-between">
+                <div>
+                    <a href = "index.html">
+                    <img src="pictures/logonoshadow.png" alt="logo" class="transition-all duration-300 ease-in-out hover:scale-110w-20 h-auto">
+                    </a>
+                </div>
+                <div class="flex items-center justify-center ml-10 space-x-4 flex-grow hidden md:flex">
+                    <a href="index.html" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Home</a>
+                    <a href="product.html" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Models</a>
+                    <a href="#" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">Brands</a>
+                    <a href="#" class="px-3 py-2 text-white transition-all duration-300 ease-in-out hover:underline hover:scale-105">About Us</a>
+                </div>
+                <div class="ml-auto cursor-pointer  mr-6 md:mr-7 sm:mr-6 relative" id="cart-icon" draggable="true">
+                    <img src="pictures/scwhite.png" alt="sc" class="w-8 h-8 align-top transition-all duration-300 ease-in-out hover:scale-110">
+                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+                </div>
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-white focus:outline-none transition-all duration-300 ease-in-out hover:scale-110 ">
+                       <img src="pictures/hamb.png" alt="hamburgerr" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+        <div class="flex flex-col bg-black text-white">
+            <a href="index.html" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Home</a>
+            <a href="product.html" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Models</a>
+            <a href="#" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">Brands</a>
+            <a href="#" class="px-4 py-2 transition-all duration-300 ease-in-out hover:underline hover:scale-90">About Us</a>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[999]" id="cart-backdrop"></div>
+    <div class="hidden fixed top-0 right-0 w-[400px] h-full bg-white shadow-[-2px_0_10px_rgba(0,0,0,0.1)] z-[1000] overflow-y-auto" id="cart-overlay">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Your Cart</h2>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <hr class="border-2 border-neutral-300 mb-4">
+            
+            <!-- Cart items will appear here -->
+            <div id="cart-items" class="mb-4">
+                <p class="text-gray-500 text-center py-10">Your cart is empty</p>
+            </div>
+            
+            <hr class="border-2 border-neutral-300 mb-4">
+            
+            <div class="flex justify-between font-bold text-lg">
+                <span>Total:</span>
+                <span id="cart-total">P0</span>
+            </div>
+            
+            <button class="w-full bg-blue-500 text-white py-2 rounded mt-4 hover:bg-blue-600">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="AGV K1S FULL FACE HELMET" data-price="12990">
+                <img src="pictures/agvk1swhite.jpg" alt="Product 1" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2 font-display">AGV K1S FULL FACE HELMET</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">AGV K1 S is the road helmet that comes out of AGV’s experience in MotoGP™, suitable for a range of uses on any route. The aerodynamic shape of its shell made of high-resistance thermoplastic material, the front air vents developed through racing experience and the new Aero Spoiler designed in the wind tunnel maximize performance and provide stability even at high speeds in sports riding.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P12,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="AGV K1S FULL FACE HELMET" data-price="12990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="AGV PISTA GP RR MOTORCYCLE RACING HELMET" data-price="49560">
+                <img src="pictures/agvpistagprr.jpg" alt="Product 2" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">AGV PISTA GP RR MOTORCYCLE RACING HELMET</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Pista GP RR is an exact replica of the AGV helmet used in races by professional world championship riders. Therefore, it has received FIM homologation, which certifies the highest possible level of protection, even against any dangerous twisting of the head. Every detail is designed to ensure ultimate performance.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P49,560</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="AGV PISTA GP RR MOTORCYCLE RACING HELMET" data-price="49560">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="DAINESE IGNITE AIR TEX MOTORCYCLE JACKET" data-price="13990">
+                <img src="pictures/dainesejacket.png" alt="Product 3" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">DAINESE IGNITE AIR TEX MOTORCYCLE JACKET</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">The casual style combines with the high levels of protection typical of Dainese. Ideal for higher temperatures due to a combination of mesh fabric and level 1 Pro-Armor protectors, it guarantees comfort, protection and freedom of movement through the materials with which it is made. Protection is optimized by a design that can accommodate chest protectors in two dedicated pockets.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P13,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="DAINESE IGNITE AIR TEX MOTORCYCLE JACKET" data-price="13990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="REV'IT FJT333 HYPERSPEED 2 GT AIR MOTORCYCLE JACKET" data-price="11990">
+                <img src="pictures/revitjacket.jpg" alt="Product 4" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">REV'IT FJT333 HYPERSPEED 2 GT AIR MOTORCYCLE JACKET</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">The Hyperspeed 2 GT Air is special - following the original racing line of the series’ signature style, while setting a new record in lightweight construction and optimum airflow. Versatile beyond ventilation, this slick summer sports jacket balances originality and practicality with bold, definitive motorsport-inspired design.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P11,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="REV'IT FJT333 HYPERSPEED 2 GT AIR MOTORCYCLE JACKET" data-price="11990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="FIVE GLOVES RFX3 EVO GLOVES" data-price="6990">
+                <img src="pictures/fivemoto.jpg" alt="Product 5" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">FIVE GLOVES RFX3 EVO GLOVES</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">RFX3 EVO outclasses its predecessor the RFX3, taking things to the next level. Introducing the first-ever product in our Racing range to use the new generation of AirGO PROTECH™ Performance shells.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P6,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="FIVE GLOVES RFX3 EVO GLOVES" data-price="6990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="IXON MIRAGE AIRFLOW MOTORYCLE RIDING MESH GLOVES" data-price="4960">
+                <img src="pictures/ixon.jpg" alt="Product 6" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">IXON MIRAGE AIRFLOW MOTORYCLE RIDING MESH GLOVES</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Very technical and highly ventilated compact roadster glove: This glove offers the best of the MIRAGE AIR in terms of design and look, but with even more ventilation to cope with the summer through the choice of mesh on the back and perforated leather on the palm.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P4,960</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="IXON MIRAGE AIRFLOW MOTORYCLE RIDING MESH GLOVES" data-price="4960">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="DAINESE NEXUS 2 D-WP MOTORCYCLE BOOTS" data-price="19990">
+                <img src="pictures/nexus.jpg" alt="Product 7" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">DAINESE NEXUS 2 D-WP MOTORCYCLE BOOTS</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Nexus 2 is a sports boot designed to perform safely and comfortably in all weather conditions. At its core is the special articulated Axial Distortion Control System that guides the ankle in all its movements, providing the necessary freedom of movement while preventing any dangerous sprains.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P19,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-redr-500 px-4 py-2 add-to-cart" data-name="DAINESE NEXUS 2 D-WP MOTORCYCLE BOOTS" data-price="19990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl" draggable="true" data-name="FORMA TERRA EVO DRY MOTORCYCLE LOW BOOTS" data-price="14990">
+                <img src="pictures/forma.jpg" alt="Product 8" class="w-full h-48 object-contain">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg mb-2">FORMA TERRA EVO DRY MOTORCYCLE LOW BOOTS</h3>
+                    <p class="text-gray-600 mb-4 flex-grow"> Forma Terra EVO Low Boot bridge the gap between a dirt boot and a touring boot for the occasional off-road ride. The upper is constructed out of oiled full-grain leather, and the welted sole is stitched on. When you find yourself riding more on fire roads than super slabs, the Terra EVO Low's will fit the bill. </p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-bold">P14,990</span>
+                        <button class="relative inline-flex items-center justify-center overflow-hidden rounded-md bg-red-600 font-normal text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-red-500 px-4 py-2 add-to-cart" data-name="FORMA TERRA EVO DRY MOTORCYCLE LOW BOOTS" data-price="14990">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="prodscript.js"></script>
+</body>
+</html>

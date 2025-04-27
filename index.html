@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Homepage </title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul id="menu-list">
+            <li><a href="#">BRANDS</a></li>
+            <li><a href="product.html">MODELS</a></li>
+            <li><a href="equipment.html">EQUIPMENT</a></li>
+            <li class="logo"><a href="index.html"><img src="pictures/Company logo.png"></a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="registration.html">BECOME A MEMBER</a></li>
+            <li class="userprof"><a href="login.html"><img src="pictures/User.png"></a></li>
+        </ul>
+    </header>
+
+    <section class="content">
+        <img src="pictures/moto.png" class="moto1">
+        <div class="btn"><button class="button">BOOK A TEST RIDE</button></div>
+        <a href="#"><img src="pictures/arrowleft.png" class = "arrowleft"></a>
+       <a href="#"> <img src = "pictures/arrowright.png" class = "arrowright"></a>
+
+    </section>
+    
+    <hr>
+
+    <section class="brands">
+        <div class="brands-grid">
+            <div class="brand-box"><a href="#"><img src="pictures/image 1.png" alt="NDA"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 2.png" alt="VAMARA"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 3.png" alt="CANDYD"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 4.png" alt="TRUMPH"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 5.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 6.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 7.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 9.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 10.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 8.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 11.png" alt="DUC"></a></div>
+            <div class="brand-box"><a href="#"><img src="pictures/image 12.png" alt="DUC"></a></div>
+
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu-list');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
